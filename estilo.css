@@ -1,0 +1,587 @@
+* {
+    box-sizing: border-box;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+body {
+    background: linear-gradient(135deg, #111, #111 55%, #111);
+    margin: 0;
+    min-height: 100vh;
+    padding: 28px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #5e2217;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+    border: 4px solid #c6a15b;
+    background: #172b59;
+    box-shadow: 0 12px 38px rgba(0, 0, 0, .35);
+}
+
+.encabezado {
+    text-align: center;
+    padding: 30px 24px 26px;
+    background: radial-gradient(ellipse at center, #713d91 0%, #40205f 58%, #26153f 100%);
+    border-bottom: 2px solid #d9c58b;
+}
+
+.logo-musica {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 10px;
+    border: 2px solid #d9c58b;
+    border-radius: 50%;
+    background: #fffdf7;
+    color: #c6a64f;
+    font-size: 45px;
+    line-height: 1;
+}
+
+.marca {
+    margin: 0 0 6px;
+    color: #e8d69e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(27px, 5vw, 39px);
+}
+
+.subtitle {
+    margin: 8px 0 0;
+    color: #f0e6f5;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.contenido {
+    width: calc(100% - 44px);
+    max-width: 1200px;
+    margin: 22px auto;
+    padding: 28px clamp(18px, 5vw, 48px) 34px;
+    border: 6px double var(--dorado);
+    outline: 1px solid #75552D;
+    background: linear-gradient(145deg, #302326, #302326);
+}
+
+/* Mantiene los campos centrados y evita que se extiendan por toda la pantalla. */
+#formulario {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contenido h2 {
+    margin: 0;
+    text-align: center;
+    color: #c6a15b;
+    font-size: 27px;
+}
+
+.intro {
+    margin: 9px 0 25px;
+    text-align: center;
+    color: #e1e8f7;
+    font-size: 14px;
+}
+
+.campo {
+    margin-bottom: 17px;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    color: #f2dfa7;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .7px;
+}
+
+input,
+.fecha-grid select {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 13px;
+    border: 1.5px solid #c9b779;
+    border-radius: 3px;
+    outline: none;
+    background: #fdfcff;
+    color: #20294a;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+/* Los nombres y apellidos se muestran siempre en mayúsculas. */
+#nombre,
+#apellidoPaterno,
+#apellidoMaterno {
+    text-transform: uppercase;
+}
+
+input::placeholder {
+    color: #85889a;
+    text-transform: none;
+}
+
+input:focus,
+.fecha-grid select:focus {
+    border-color: #f0d98e;
+    box-shadow: 0 0 0 3px rgba(240, 217, 142, .2);
+}
+
+input.invalido {
+    border-color: #dc3545;
+    background: #fff5f5;
+}
+
+input.valido {
+    border-color: #28a745;
+}
+
+.fecha-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr 1.2fr;
+    gap: 10px;
+}
+
+.fecha-grid select {
+    cursor: pointer;
+    appearance: auto;
+}
+
+.error {
+    display: block;
+    min-height: 14px;
+    margin-top: 4px;
+    color: #ffd0d0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #f0dfa8;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #68408b, #8753a6);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #8052a3, #a16ab9);
+    transform: translateY(-1px);
+}
+
+.exito {
+    color: #d7f4d9;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-card {
+    width: 90%;
+    max-width: 380px;
+    padding: 35px 30px;
+    border: 2px solid #d9c58b;
+    background: #fff;
+    color: #20294a;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
+}
+
+.modal-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #22c55e;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-card h2 {
+    margin: 0 0 8px;
+    font-size: 22px;
+}
+
+.modal-card p {
+    margin: 0 0 20px;
+    color: #666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal-card button {
+    background: #22a65a;
+    border: none;
+    letter-spacing: 0;
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 12px 8px;
+    }
+
+    .contenido {
+        width: calc(100% - 24px);
+        margin: 12px auto;
+        padding: 23px 15px;
+    }
+
+    #formulario {
+        max-width: 100%;
+    }
+
+    .fecha-grid {
+        grid-template-columns: 1fr 1.35fr 1.1fr;
+        gap: 7px;
+    }
+
+    .fecha-grid select {
+        padding: 11px 5px;
+        font-size: 13px;
+    }
+}
+
+
+/* =====================================
+   ENCABEZADO PRINCIPAL Y MENÚ LATERAL
+   Basados en index.html y style.css
+===================================== */
+
+:root {
+    --vino: #35151F;
+    --vino-claro: #572B35;
+    --dorado: #C6A15B;
+    --dorado-oscuro: #8D672F;
+    --cafe-claro: #C5A477;
+    --crema: #F3E8D2;
+}
+
+body {
+    display: block;
+    min-height: 100vh;
+    padding: 0;
+    background-color: #171214;
+    color: #E9DDC8;
+}
+
+.encabezado {
+    position: relative;
+    text-align: center;
+    padding: 35px 20px;
+    background: linear-gradient(135deg, #210D14, #49202A);
+    border: 5px double var(--dorado);
+    border-bottom-width: 4px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    color: var(--dorado);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    line-height: 1.3;
+}
+
+.encabezado p {
+    margin-top: 5px;
+    color: var(--crema);
+    font-style: italic;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cafe-claro);
+    border: 4px double var(--dorado-oscuro);
+    outline: 1px solid #E3C991;
+    outline-offset: 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .35);
+}
+
+.clave-sol {
+    color: #B68A36;
+    font-family: "Times New Roman", serif;
+    font-size: 75px;
+    line-height: 1;
+    text-shadow: 1px 1px 1px #63451E;
+}
+
+.boton-menu {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: auto;
+    padding: 8px 14px;
+    background: transparent;
+    color: var(--dorado);
+    border: 1px solid var(--dorado);
+    border-radius: 5px;
+    font-size: 25px;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.boton-menu:hover {
+    background-color: var(--dorado);
+    color: var(--vino);
+    transform: none;
+}
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -290px;
+    width: 270px;
+    max-width: 85vw;
+    height: 100vh;
+    background: linear-gradient(180deg, #432719, #24150F);
+    border-right: 4px double var(--dorado);
+    padding: 65px 20px 25px;
+    z-index: 1001;
+    overflow-y: auto;
+    transition: left .3s ease;
+}
+
+.menu-lateral.activo { left: 0; }
+
+.menu-lateral h2 {
+    margin: 0 0 25px;
+    padding-bottom: 15px;
+    color: var(--dorado);
+    text-align: center;
+    border-bottom: 1px solid var(--dorado);
+}
+
+.logo-menu {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 18px;
+}
+
+.logo-menu .clave-sol { font-size: 58px; }
+
+.menu-lateral a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 10px;
+    margin-bottom: 8px;
+    color: var(--crema);
+    text-decoration: none;
+    border-bottom: 1px solid #79515A;
+    transition: .3s;
+}
+
+.menu-lateral a:hover,
+.menu-lateral a[aria-current="page"] {
+    background-color: var(--dorado);
+    color: var(--vino);
+    padding-left: 20px;
+}
+
+.icono-menu {
+    width: 30px;
+    min-width: 30px;
+    color: #D6B36F;
+    font-size: 27px;
+    text-align: center;
+    line-height: 1;
+    transition: color .3s;
+}
+
+.menu-lateral a:hover .icono-menu,
+.menu-lateral a[aria-current="page"] .icono-menu {
+    color: var(--vino);
+}
+
+.cerrar-menu {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    width: auto;
+    padding: 0 5px;
+    background: none;
+    border: none;
+    color: var(--dorado);
+    font-size: 35px;
+    letter-spacing: 0;
+    cursor: pointer;
+}
+
+.cerrar-menu:hover {
+    background: none;
+    color: var(--crema);
+    transform: none;
+}
+
+.fondo-menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .65);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s, visibility .3s;
+}
+
+.fondo-menu.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* La tarjeta de suscripción queda debajo del encabezado */
+.container { margin: 35px auto; }
+
+@media (max-width: 550px) {
+    .encabezado { padding: 75px 12px 30px; }
+    .encabezado h1 { letter-spacing: 1px; }
+    .boton-menu { top: 12px; left: 12px; }
+    .encabezado .logo { width: 75px; height: 75px; }
+    .encabezado .clave-sol { font-size: 57px; }
+    .container { margin: 18px 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu-lateral, .fondo-menu, .menu-lateral a, .boton-menu {
+        transition: none !important;
+    }
+}
+
+
+/* =====================================
+   MODAL DE SUSCRIPCIÓN COMPLETADA
+   Estilo inspirado en la referencia
+===================================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 18px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .76);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 2000;
+}
+
+.modal-card {
+    width: 100%;
+    max-width: 650px;
+    padding: 42px 34px;
+    border: 2px solid #b9d1df;
+    border-radius: 34px;
+    background: linear-gradient(135deg, #679bb7 0%, #244e6d 52%, #142d49 100%);
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, .48), inset 0 0 22px rgba(255,255,255,.08);
+}
+
+.modal-icon {
+    width: 105px;
+    height: 105px;
+    margin: 0 auto 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #39c98b;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 66px;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.modal-card h2 {
+    margin: 0 0 20px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(25px, 4vw, 36px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.modal-card p {
+    margin: 0 auto 32px;
+    max-width: 540px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(17px, 2.5vw, 22px);
+    font-weight: 600;
+    line-height: 1.55;
+}
+
+.modal-card button {
+    width: 65%;
+    min-width: 190px;
+    padding: 17px 28px;
+    border: 3px solid #f3d8b0;
+    border-radius: 17px;
+    background: linear-gradient(110deg, #e9b66c, #a9572c);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0;
+    cursor: pointer;
+}
+
+.modal-card button:hover {
+    background: linear-gradient(110deg, #f2c987, #bd6b3b);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 550px) {
+    .modal-card { padding: 32px 21px; border-radius: 26px; }
+    .modal-icon { width: 82px; height: 82px; font-size: 52px; }
+    .modal-card button { width: 100%; min-width: 0; font-size: 19px; }
+}

@@ -1,0 +1,510 @@
+/* =====================================
+   CONFIGURACIÓN GENERAL
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --vino: #35151F;
+    --vino-claro: #572B35;
+    --dorado: #C6A15B;
+    --dorado-oscuro: #8D672F;
+    --cafe-claro: #C5A477;
+    --crema: #F3E8D2;
+    --fondo: #171214;
+    --texto: #E9DDC8;
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.7;
+}
+
+/* =====================================
+   ENCABEZADO
+===================================== */
+
+.encabezado {
+    position: relative;
+    text-align: center;
+    padding: 35px 20px;
+    background: linear-gradient(
+        135deg,
+        #210D14,
+        #49202A
+    );
+    border: 5px double var(--dorado);
+    border-bottom-width: 4px;
+}
+
+.encabezado h1 {
+    color: var(--dorado);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    line-height: 1.3;
+}
+
+.encabezado p {
+    color: var(--crema);
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* =====================================
+   LOGO DE CLAVE DE SOL
+===================================== */
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--cafe-claro);
+    border: 4px double var(--dorado-oscuro);
+    outline: 1px solid #E3C991;
+    outline-offset: 4px;
+    border-radius: 50%;
+
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+}
+
+.clave-sol {
+    color: #B68A36;
+    font-family: "Times New Roman", serif;
+    font-size: 75px;
+    line-height: 1;
+    text-shadow: 1px 1px 1px #63451E;
+}
+
+/* =====================================
+   BOTÓN DE MENÚ
+===================================== */
+
+.boton-menu {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+
+    background: transparent;
+    color: var(--dorado);
+    border: 1px solid var(--dorado);
+    border-radius: 5px;
+
+    padding: 8px 14px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.boton-menu:hover {
+    background-color: var(--dorado);
+    color: var(--vino);
+}
+
+/* =====================================
+   MENÚ LATERAL
+===================================== */
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -290px;
+
+    width: 270px;
+    max-width: 85vw;
+    height: 100vh;
+
+    background: linear-gradient(
+        180deg,
+        #432719,
+        #24150F
+    );
+
+    border-right: 4px double var(--dorado);
+    padding: 65px 20px 25px;
+
+    z-index: 1001;
+    overflow-y: auto;
+
+    transition: left 0.3s ease;
+}
+
+.menu-lateral.activo {
+    left: 0;
+}
+
+.menu-lateral h2 {
+    color: var(--dorado);
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--dorado);
+}
+
+/* Logo dentro del menú */
+
+.logo-menu {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 18px;
+}
+
+.logo-menu .clave-sol {
+    font-size: 58px;
+}
+
+/* Enlaces e iconos */
+
+.menu-lateral a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: var(--crema);
+    text-decoration: none;
+
+    padding: 13px 10px;
+    margin-bottom: 8px;
+
+    border-bottom: 1px solid #79515A;
+    transition: 0.3s;
+}
+
+.menu-lateral a:hover {
+    background-color: var(--dorado);
+    color: var(--vino);
+    padding-left: 20px;
+}
+
+.icono-menu {
+    width: 30px;
+    min-width: 30px;
+
+    color: #D6B36F;
+    font-size: 27px;
+    text-align: center;
+    line-height: 1;
+
+    transition: color 0.3s;
+}
+
+.menu-lateral a:hover .icono-menu {
+    color: var(--vino);
+}
+
+/* Botón de cerrar */
+
+.cerrar-menu {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    background: none;
+    border: none;
+    color: var(--dorado);
+
+    font-size: 35px;
+    cursor: pointer;
+}
+
+/* =====================================
+   FONDO OSCURO DEL MENÚ
+===================================== */
+
+.fondo-menu {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.fondo-menu.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =====================================
+   MARCO CLÁSICO DE LA PÁGINA
+===================================== */
+
+main {
+    max-width: 1250px;
+    margin: 35px auto;
+    padding: 18px;
+
+    border: 6px double var(--dorado);
+    outline: 1px solid #75552D;
+    outline-offset: -12px;
+
+    background-color: #21191A;
+}
+
+/* =====================================
+   PRESENTACIÓN
+===================================== */
+
+.presentacion {
+    text-align: center;
+    padding: 35px 20px;
+    margin-bottom: 30px;
+
+    border-bottom: 2px solid var(--dorado);
+    scroll-margin-top: 20px;
+}
+
+.presentacion h2,
+.seccion h2 {
+    color: var(--dorado);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.presentacion p {
+    max-width: 700px;
+    margin: 0 auto 25px;
+}
+
+.imagen-portada {
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    height: 320px;
+
+    object-fit: cover;
+    margin: 0 auto;
+
+    border: 5px double var(--dorado);
+    border-radius: 5px;
+}
+
+/* =====================================
+   SECCIONES
+===================================== */
+
+.seccion {
+    padding: 30px 15px;
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #795B3B;
+    scroll-margin-top: 20px;
+}
+
+/* =====================================
+   CUADRÍCULA DE TRES COLUMNAS
+===================================== */
+
+.contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* =====================================
+   TARJETAS
+===================================== */
+
+.tarjeta {
+    min-width: 0;
+
+    background-color: #302326;
+    padding: 14px;
+
+    border: 2px solid var(--dorado);
+    outline: 1px solid #75552D;
+    outline-offset: -6px;
+
+    border-radius: 4px;
+    text-align: center;
+
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    background-color: var(--vino-claro);
+}
+
+.tarjeta img {
+    display: block;
+    width: 100%;
+    height: 190px;
+
+    object-fit: cover;
+
+    border: 2px solid #A9884D;
+    border-radius: 3px;
+}
+
+.tarjeta h3 {
+    color: var(--dorado);
+    margin: 12px 0;
+    font-size: 1.15rem;
+    line-height: 1.4;
+}
+
+.tarjeta p {
+    color: var(--crema);
+    font-size: 0.95rem;
+}
+
+/* =====================================
+   PIE DE PÁGINA
+===================================== */
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+
+    background-color: #210D14;
+    color: var(--crema);
+
+    border-top: 4px double var(--dorado);
+}
+
+/* =====================================
+   TABLETAS
+===================================== */
+
+@media (max-width: 850px) {
+    .contenedor-tarjetas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    main {
+        margin: 20px 12px;
+    }
+}
+
+/* =====================================
+   CELULARES
+===================================== */
+
+@media (max-width: 550px) {
+    .encabezado {
+        padding: 75px 12px 30px;
+    }
+
+    .encabezado h1 {
+        letter-spacing: 1px;
+    }
+
+    .boton-menu {
+        top: 12px;
+        left: 12px;
+    }
+
+    .encabezado .logo {
+        width: 75px;
+        height: 75px;
+    }
+
+    .encabezado .clave-sol {
+        font-size: 57px;
+    }
+
+    .contenedor-tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .imagen-portada {
+        height: 220px;
+    }
+
+    main {
+        margin: 15px 8px;
+        padding: 12px;
+        outline-offset: -8px;
+    }
+
+    .seccion {
+        padding: 25px 8px;
+    }
+
+    .tarjeta img {
+        height: 220px;
+    }
+}
+
+/* =====================================
+   ACCESIBILIDAD
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+
+
+
+/* =====================================
+   MULTIMEDIA RESPONSIVA (IMÁGENES, AUDIO Y VIDEO)
+===================================== */
+
+/* Regla general para imágenes dentro de secciones o contenido principal */
+main img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 5px;
+}
+
+/* Mantiene el ajuste específico de tus imágenes existentes */
+.imagen-portada {
+    width: 100%;
+    max-width: 850px;
+    height: auto;
+    aspect-ratio: 16 / 6;
+    object-fit: cover;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    margin: 0;
+}
+
+/* Reproductores de audio responsivos */
+audio {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 12px auto;
+    border-radius: 8px;
+}
+
+/* Videos locales (<video>) e iframes (YouTube, Vimeo, etc.) responsivos */
+video,
+iframe {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    display: block;
+    margin: 15px auto;
+    border: 2px solid var(--dorado);
+    border-radius: 5px;
+}
