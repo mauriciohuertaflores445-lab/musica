@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#35151F">
+    <title>Academica.html</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Encabezado principal -->
+    <header class="encabezado">
+
+        <button class="boton-menu" id="abrirMenu"
+                aria-label="Abrir menú"
+                aria-controls="menuLateral"
+                aria-expanded="false">
+            ☰
+        </button>
+
+        <div class="logo">
+            <span class="clave-sol">🎻</span>
+        </div>
+
+        <h1>Académica</h1>
+        
+
+    </header>
+
+    <!-- Fondo oscuro del menú -->
+    <div class="fondo-menu" id="fondoMenu"></div>
+
+    <!-- Menú lateral -->
+    <nav class="menu-lateral" id="menuLateral"
+         aria-label="Menú principal">
+
+        <button class="cerrar-menu" id="cerrarMenu"
+                aria-label="Cerrar menú">×</button>
+
+        <div class="logo logo-menu">
+            <span class="clave-sol">𝄞</span>
+        </div>
+
+        <h2>Classic Music</h2>
+
+        <a href="index.html">
+            <span class="icono-menu" aria-hidden="clave-sol">𝄞</span>
+            Inicio
+        </a>
+
+        <a href="Academica.html">
+            <span class="icono-menu" aria-hidden="true">🎻</span>
+            Académica
+        </a>
+
+        <a href="Rock.html">
+            <span class="icono-menu" aria-hidden="true">🎸</span>
+            Rock
+        </a>
+
+        <a href="Folk.html">
+            <span class="icono-menu" aria-hidden="true">🎺</span>
+            Folk
+        </a>
+
+        <a href="Pop.html">
+            <span class="icono-menu" aria-hidden="true">🎙</span>
+            Pop
+        </a>
+
+        <a href="genero.html">
+            <span class="icono-menu" aria-hidden="true">🎹</span>
+            Inde
+        </a>
+
+        <a href="Boleros.html">
+            <span class="icono-menu" aria-hidden="true">🎶</span>
+            Bolero
+        </a>
+
+         <a href="formulario.html">
+            <span class="icono-menu" aria-hidden="true">$</span>
+            Suscribirse
+        </a>
+
+    </nav>
+
+    <!-- Contenido de la página -->
+    <main>
+
+        <!-- Inicio -->
+        <section class="presentacion" id="inicio">
+
+            <h2>LUDWIG VAN BEETHOVEN</h2>
+
+            <p align="justify">
+                Beethoven fue conocido por ser el mejor compositor de su época
+                en Alemania, su fama también fue de que a pesar de su sordera no lo detuvo y
+                pudo componer Ode to joy. También fue conocido como la "Bestia" debido a que tenía un carácter muy fuerte.
+                
+            </p>
+
+            <img
+                src="imagenes/beethoven.jpg" heigh="350" width="350">
+                
+                
+
+        </section>
+
+        <!-- Compositores -->
+        <section class="seccion" id="Obras mas famosas">
+        <h2>Obras más Famosas</h2>
+
+                    <article class="tarjeta">
+                    <center><audio controls preload="auto">
+                    <source src="5/fur elise.mp3" type="audio/mp3">
+                    </center></audio><br><br>
+
+                    <h3>Fur Elise/Para Elisa</h3>
+
+                    <p>
+                        
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <center><audio controls preload="auto">
+                    <source src="5/luna.mp3" type="audio/mp3">
+                    </center></audio><br><br>
+
+                    <h3>Moonlight Sonata/Claro de Luna</h3>
+
+                    <p>
+                       
+                    </p>
+                </article>
+                            
+                <article class="tarjeta">
+                    <center><audio controls preload="auto">
+                    <source src="audio/virus.mp3" type="audio/mp3">
+                    </center></audio><br><br>
+
+                    <h3>Virus</h3>
+
+                    <p>
+                       
+                    </p>
+                </article>
+           
+                <article class="tarjeta">
+                    <center><audio controls preload="auto">
+                    <source src="5/ode to joy.mp3" type="audio/mp3">
+                    </center></audio><br><br>
+                    <h3>Ode To Joy/Himno de la Alegria</h3>
+
+                    <p>
+                        
+                    </p>
+                </article>
+    
+                <article class="tarjeta">
+                        <center><video width="640" height="360" controls>
+                        <source src="2/karajan.mp4" type="video/mp4">
+                        </center></video><br><br>
+                    <h3>La Quinta Sinfonia</h3>
+
+                    <p>
+                        
+                    </p>
+                </article>
+            </div>
+
+        </section>
+
+   <script src="script.js"></script>
+</body>
+</html>
+
